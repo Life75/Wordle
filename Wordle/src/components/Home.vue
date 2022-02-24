@@ -5,10 +5,10 @@
 
 <script setup lang ="ts">
 import {ref, onMounted} from 'vue'
-//import testing from '../services/WordOfTheDayService'
+import wordList from '../services/WordOfTheDayService'
 
 onMounted(() => {
-    
+    console.log(wordList)
 })
 
 
