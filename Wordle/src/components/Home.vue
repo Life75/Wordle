@@ -5,10 +5,10 @@
 
 <script setup lang ="ts">
 import {ref, onMounted} from 'vue'
-import wordList from '../services/WordOfTheDayService'
-
+import pullMainWord from '../services/SMainWordle'
 onMounted(() => {
-    console.log(wordList)
+  pullMainWord()
+
 })
 
 

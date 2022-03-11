@@ -4,8 +4,8 @@
 </script>
 
 <template>
-<nav class="flex flex-row dark:text-slate-200">
-  <div>
+<nav class="flex justify-center dark:text-slate-200">
+  <div class="" >
     Wordle
   </div>
 </nav>
@@ -15,8 +15,6 @@
 <style>
 #app {
  
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+
 }
 </style>
