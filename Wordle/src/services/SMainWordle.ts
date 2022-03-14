@@ -1,9 +1,10 @@
 //pulls in data from function and identifies what the main word is
 import wordList from '../services/WordOfTheDayService'
-export default function pullMainWord() {
+export default function pullMainWord(): string{
     //parse into an array 
     const wordArr = parseIntoWords(wordList.toString())
-    findRandomWord(wordArr)
+    //this is word of the day to try and acheive 
+    return findRandomWord(wordArr)
 }
 
 function parseIntoWords(wordList: string) {
@@ -18,12 +19,10 @@ function parseIntoWords(wordList: string) {
 
 
 function findRandomWord(wordArr: string[]) {
-    var randomInt = Math.floor(Math.random() * wordArr.length)
+    var randomInt = Math.floor(Math.random() * wordArr.length);
     
-    console.log(wordArr[randomInt])
+    console.log(wordArr[randomInt]);
+    return wordArr[randomInt];
 }
 
 //last one is the word to try and achieve 
-function fiveWords() {
-
-}

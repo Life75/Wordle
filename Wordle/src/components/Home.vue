@@ -1,19 +1,23 @@
 <template>
-  <h1 class=""></h1>
-<button class="bg-white" @click="test()">Click Me!</button>
+  <div>
+    <WordleViewer :mainWord="getMainWord()" />
+  </div>
+
 </template>
 
 <script setup lang ="ts">
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, defineComponent} from 'vue'
 import pullMainWord from '../services/SMainWordle'
-onMounted(() => {
-  pullMainWord()
+import WordleViewer from './WordleViewer.vue'
 
+
+var mainWord: string
+const test = ref(0);
+onMounted(() => {
 })
 
-
-function test() {
-
+function getMainWord(): string {
+  return pullMainWord();
 }
 </script>
 
