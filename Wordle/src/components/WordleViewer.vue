@@ -1,14 +1,13 @@
 <template>
     <div>
-        <div >
-            <Wordle/>
-            {{props.mainWord}}
+        <div class="flex justify-center m-3">
+            <Wordle :word="props.mainWord"/>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import Wordle from "./wordle.vue";
+import Wordle from "./Wordle.vue";
 
 const props = defineProps(['mainWord']) 
 

@@ -1,11 +1,15 @@
 <template>
-    <div>testing</div>
+<div>
+    <Letter/>
+</div>
 </template>
 
-<script>
+<script setup lang="ts">
+import Letter from "./Letter.vue"
+
+
 
 </script>
 
 <style>
-
 </style>
