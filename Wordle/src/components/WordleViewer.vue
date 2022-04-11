@@ -1,8 +1,14 @@
 <template>
     <div>
-        <div class="flex justify-center m-3">
-            <Wordle :word="props.mainWord"/>
+        <div class="flex  m-3">
+            <Wordle 
+            :word="props.mainWord"/>
+        
         </div>
+        
+            <Wordle
+            :word="props.mainWord"/>
+
     </div>
 </template>
 

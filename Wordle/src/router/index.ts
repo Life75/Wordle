@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Testing from '../services/testing'
 import Home from '/src/components/Home.vue'
 const routes = [
     {
@@ -6,6 +7,7 @@ const routes = [
         name: 'Home',
         component: Home,
     },
+
 ]
 const router = createRouter({
     history: createWebHistory(),
