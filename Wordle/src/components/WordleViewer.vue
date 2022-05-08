@@ -2,21 +2,24 @@
     <div>
         <div class="flex  m-3">
             <Wordle 
-            :word="props.mainWord"/>
-        
+            :word="mainWord"/>
         </div>
-        
-            <Wordle
-            :word="props.mainWord"/>
-
     </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from "vue-demi";
 import Wordle from "./Wordle.vue";
 
-const props = defineProps(['mainWord']) 
-
+export default defineComponent ({
+    name: 'WordleViewer',
+    components: {
+        Wordle
+    },
+    props: {
+        mainWord: {type: String, default: 'default' }
+    },
+})
 </script>
 
 <style>
