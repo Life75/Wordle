@@ -34,7 +34,8 @@ import { defineComponent } from "vue-demi";
 export default defineComponent({
   name: "Letter",
   props: ["mainWord", "index"],
-  setup(props) {
+  emits:  ['reciever', 'currentIndex'],
+  setup(props, {emit}) {
     var letter = ref("");
     var lockedOut = false;
     const defaultClassInput = "ml-1 mb-2 border-none outline-none border-2 w-4";
@@ -43,10 +44,11 @@ export default defineComponent({
 
     var classInput = ref(defaultClassInput);
     var classDiv = ref(defaultClassDiv);
+    
 
     function lockOut() {
       if (letter.value != "") {
-        lockedOut = true;
+        lockedOut = true; 
         //TODO eval check on given word to see how close it is to the WoTD
         _evalInput(letter.value.toLowerCase());
         //TODO check if this is the last letter in the index, if so create a animation good job or something next to the div to show up
@@ -55,6 +57,7 @@ export default defineComponent({
 
     function _evalInput(letter: string) {
       if (props.mainWord[props.index] == letter) {
+        emit('reciever', true)
         classInput.value = `${defaultClassInput} bg-lime-400`;
         classDiv.value = `${defaultClassDiv} bg-lime-400`;
       } else {
@@ -65,7 +68,9 @@ export default defineComponent({
           classInput.value = `${defaultClassInput} bg-red-400`;
           classDiv.value = `${defaultClassDiv} bg-red-400`;
         }
+        emit('reciever', false)
       }
+      emit('currentIndex', props.index)
     }
     return {
       classDiv,

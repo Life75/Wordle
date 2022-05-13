@@ -4,6 +4,22 @@
             <Wordle 
             :word="mainWord"/>
         </div>
+        <div class="flex  m-3">
+            <Wordle 
+            :word="mainWord"/>
+        </div>
+                <div class="flex  m-3">
+            <Wordle 
+            :word="mainWord"/>
+        </div>
+                <div class="flex  m-3">
+            <Wordle 
+            :word="mainWord"/>
+        </div>
+                <div class="flex  m-3">
+            <Wordle 
+            :word="mainWord"/>
+        </div>
     </div>
 </template>
 
