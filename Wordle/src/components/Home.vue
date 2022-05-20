@@ -9,7 +9,7 @@
 <script setup lang ="ts">
 import {ref, onMounted, defineComponent} from 'vue'
 import { onBeforeRouteUpdate } from 'vue-router';
-import pullMainWord from '../services/SMainWordle'
+import ListOfWords from '../services/SMainWordle'
 import WordleViewer from './WordleViewer.vue'
 import { useLoggedInUserStore } from '../store/store';
 
@@ -20,7 +20,8 @@ defineComponent({
 var mainWord: string
 
 function getMainWord(): string {
-  return pullMainWord();
+  var list = new ListOfWords()
+  return list.pullMainWord();
 }
 </script>
 

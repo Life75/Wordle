@@ -29,11 +29,12 @@
 
 <script lang="ts">
 import { ref } from "@vue/reactivity";
+import { watch } from "vue";
 import { defineComponent } from "vue-demi";
 
 export default defineComponent({
   name: "Letter",
-  props: ["mainWord", "index"],
+  props: ["mainWord", "index", "clearContents"],
   emits:  ['reciever', 'currentIndex'],
   setup(props, {emit}) {
     var letter = ref("");
@@ -44,7 +45,12 @@ export default defineComponent({
 
     var classInput = ref(defaultClassInput);
     var classDiv = ref(defaultClassDiv);
-    
+      if(props.clearContents) {
+            console.log(letter.value)
+            letter.value = ""
+            console.log(letter.value)
+            lockedOut = false
+      }  
 
     function lockOut() {
       if (letter.value != "") {
