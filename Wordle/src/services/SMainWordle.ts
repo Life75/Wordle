@@ -29,12 +29,16 @@ export default class ListOfWords {
     }
     
     doesWordExist(word: string | undefined): boolean {
-        console.log(word)
-
         
+        //console.log('word exisiting ')
+        this.wordArr = [...this.parseIntoWords(wordList.toString())]
+
         if(word)
-        {
-            return this.wordArr.includes(word)
+        {   
+           return this.wordArr.includes(word)
+            
+
+            
         }
         
         else return false 

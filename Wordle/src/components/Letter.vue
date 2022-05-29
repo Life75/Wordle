@@ -28,14 +28,14 @@
 </template>
 
 <script lang="ts">
-import { ref } from "@vue/reactivity";
+import { reactive, ref } from "@vue/reactivity";
 import { watch } from "vue";
 import { defineComponent } from "vue-demi";
 
 export default defineComponent({
   name: "Letter",
   props: ["mainWord", "index", "clearContents"],
-  emits:  ['reciever', 'currentIndex'],
+  emits:  ['reciever', 'currentIndex', 'letterGiven'],
   setup(props, {emit}) {
     var letter = ref("");
     var lockedOut = false;
@@ -45,13 +45,7 @@ export default defineComponent({
 
     var classInput = ref(defaultClassInput);
     var classDiv = ref(defaultClassDiv);
-      if(props.clearContents) {
-            console.log(letter.value)
-            letter.value = ""
-            console.log(letter.value)
-            lockedOut = false
-      }  
-
+    
     function lockOut() {
       if (letter.value != "") {
         lockedOut = true; 
@@ -61,23 +55,33 @@ export default defineComponent({
       }
     }
 
+
+
     function _evalInput(letter: string) {
       if (props.mainWord[props.index] == letter) {
+        
         emit('reciever', true)
-        classInput.value = `${defaultClassInput} bg-lime-400`;
-        classDiv.value = `${defaultClassDiv} bg-lime-400`;
+        
+        //classInput.value = `${defaultClassInput} bg-lime-400`;
+        //classDiv.value = `${defaultClassDiv} bg-lime-400`;
       } else {
         if (props.mainWord.includes(letter)) {
-          classInput.value = `${defaultClassInput} bg-yellow-300`;
-          classDiv.value = `${defaultClassDiv} bg-yellow-300`;
+          //classInput.value = `${defaultClassInput} bg-yellow-300`;
+          //classDiv.value = `${defaultClassDiv} bg-yellow-300`;
         } else {
-          classInput.value = `${defaultClassInput} bg-red-400`;
-          classDiv.value = `${defaultClassDiv} bg-red-400`;
+         // classInput.value = `${defaultClassInput} bg-red-400`;
+         // classDiv.value = `${defaultClassDiv} bg-red-400`;
         }
         emit('reciever', false)
       }
       emit('currentIndex', props.index)
+      emit('letterGiven', letter)
     }
+
+    watch(ref(props.clearContents), (newValue, oldValue) => {
+      console.log(newValue)
+    })
+
     return {
       classDiv,
       classInput,
